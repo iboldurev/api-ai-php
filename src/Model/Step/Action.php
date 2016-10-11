@@ -6,9 +6,7 @@ use ApiAi\Model\Context;
 use ApiAi\Model\Step;
 
 /**
- * Class Action
- *
- * @package ApiAi\Model\Step
+ * Class Action.
  */
 class Action implements Step
 {
@@ -30,8 +28,8 @@ class Action implements Step
     /**
      * Action constructor.
      *
-     * @param string $action
-     * @param array $parameters
+     * @param string    $action
+     * @param array     $parameters
      * @param Context[] $contexts
      */
     public function __construct($action, array $parameters, array $contexts)
@@ -72,5 +70,4 @@ class Action implements Step
     {
         return Step::TYPE_ACTION;
     }
-
 }

@@ -3,9 +3,7 @@
 namespace ApiAi\Model;
 
 /**
- * Interface Step
- *
- * @package ApiAi\Model
+ * Interface Step.
  */
 interface Step
 {
@@ -16,5 +14,4 @@ interface Step
      * @return string
      */
     public function getType();
-
 }

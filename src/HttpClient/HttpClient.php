@@ -5,19 +5,17 @@ namespace ApiAi\HttpClient;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * Interface HttpClient
- *
- * @package ApiAi\HttpClient
+ * Interface HttpClient.
  */
 interface HttpClient
 {
     /**
      * @param string $method
      * @param string $uri
-     * @param mixed $body
-     * @param array $query
-     * @param array $headers
-     * @param array $options
+     * @param mixed  $body
+     * @param array  $query
+     * @param array  $headers
+     * @param array  $options
      *
      * @return ResponseInterface
      */

@@ -2,16 +2,14 @@
 
 namespace ApiAi;
 
+use ApiAi\Exception\InvalidStepException;
 use ApiAi\Model\Query;
 use ApiAi\Model\Step;
 use ApiAi\Model\Step\Action;
 use ApiAi\Model\Step\Speech;
-use ApiAi\Exception\InvalidStepException;
 
 /**
- * Class StepFactory
- *
- * @package ApiAi
+ * Class StepFactory.
  */
 class StepFactory
 {
@@ -72,5 +70,4 @@ class StepFactory
             $query->getResult()->getContexts()
         );
     }
-
 }

@@ -5,9 +5,7 @@ namespace ApiAi\Exception;
 use ApiAi\Model\Query;
 
 /**
- * Class DialogException
- *
- * @package ApiAi\Exception
+ * Class DialogException.
  */
 class DialogException extends \RuntimeException
 {
@@ -44,5 +42,4 @@ class DialogException extends \RuntimeException
     {
         return $this->query;
     }
-
 }

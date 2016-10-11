@@ -3,9 +3,7 @@
 namespace ApiAi\Model;
 
 /**
- * Class QueryResult
- *
- * @package ApiAi\Model
+ * Class QueryResult.
  */
 class QueryResult extends Base
 {
@@ -104,5 +102,4 @@ class QueryResult extends Base
     {
         return parent::get('score');
     }
-
 }
