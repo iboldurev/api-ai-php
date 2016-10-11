@@ -3,9 +3,7 @@
 namespace ApiAi\Model;
 
 /**
- * Class Context
- *
- * @package ApiAi\Model
+ * Class Context.
  */
 class Context extends Base
 {
@@ -26,11 +24,10 @@ class Context extends Base
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getLifespan()
     {
         return parent::get('lifespan');
     }
-
 }

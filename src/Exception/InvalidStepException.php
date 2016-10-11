@@ -5,9 +5,7 @@ namespace ApiAi\Exception;
 use ApiAi\Model\Query;
 
 /**
- * Class InvalidStepException
- *
- * @package ApiAi\Exception
+ * Class InvalidStepException.
  */
 class InvalidStepException extends \RuntimeException
 {
@@ -20,7 +18,7 @@ class InvalidStepException extends \RuntimeException
      * InvalidStepException constructor.
      *
      * @param string $message
-     * @param Query $query
+     * @param Query  $query
      */
     public function __construct($message, Query $query)
     {
@@ -36,5 +34,4 @@ class InvalidStepException extends \RuntimeException
     {
         return $this->query;
     }
-
 }

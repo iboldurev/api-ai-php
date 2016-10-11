@@ -5,9 +5,7 @@ namespace ApiAi;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * Class ResponseHandler
- *
- * @package ApiAi
+ * Class ResponseHandler.
  */
 trait ResponseHandler
 {
@@ -20,5 +18,4 @@ trait ResponseHandler
     {
         return json_decode((string) $response->getBody(), true);
     }
-
 }
