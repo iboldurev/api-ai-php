@@ -3,9 +3,7 @@
 namespace ApiAi\Model;
 
 /**
- * Class Query
- *
- * @package ApiAi\Model
+ * Class Query.
  */
 class Query extends Base
 {
@@ -40,7 +38,7 @@ class Query extends Base
     }
 
     /**
-     * Return the timestamp in the ISO8601 format
+     * Return the timestamp in the ISO8601 format.
      *
      * @return string
      */
@@ -72,5 +70,4 @@ class Query extends Base
     {
         return parent::get('sessionId');
     }
-
 }

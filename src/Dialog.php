@@ -2,18 +2,16 @@
 
 namespace ApiAi;
 
+use ApiAi\Exception\DialogException;
+use ApiAi\Exception\InvalidStepException;
 use ApiAi\Method\QueryApi;
 use ApiAi\Model\Query;
 use ApiAi\Model\Step;
 use ApiAi\Model\Step\Action;
 use ApiAi\Model\Step\Speech;
-use ApiAi\Exception\DialogException;
-use ApiAi\Exception\InvalidStepException;
 
 /**
- * Class Dialog
- *
- * @package ApiAi
+ * Class Dialog.
  */
 class Dialog
 {
@@ -30,7 +28,7 @@ class Dialog
     /**
      * Dialog constructor.
      *
-     * @param QueryApi $queryApi
+     * @param QueryApi      $queryApi
      * @param ActionMapping $actionMapping
      */
     public function __construct(QueryApi $queryApi, ActionMapping $actionMapping)
@@ -42,7 +40,7 @@ class Dialog
     /**
      * @param string $sessionId
      * @param string $message
-     * @param array $contexts
+     * @param array  $contexts
      *
      * @return bool|void
      */
@@ -60,7 +58,7 @@ class Dialog
     /**
      * @param string $sessionId
      * @param string $message
-     * @param array $contexts
+     * @param array  $contexts
      *
      * @return Action|Speech
      */
@@ -68,7 +66,7 @@ class Dialog
     {
         $query = $this->queryApi->extractMeaning($message, [
             'sessionId' => $sessionId,
-            'contexts' => $contexts,
+            'contexts'  => $contexts,
         ]);
 
         $query = new Query($query);
@@ -92,7 +90,7 @@ class Dialog
 
     /**
      * @param string $sessionId
-     * @param Step $step
+     * @param Step   $step
      *
      * @return bool
      */
@@ -109,5 +107,4 @@ class Dialog
 
         return false;
     }
-
 }

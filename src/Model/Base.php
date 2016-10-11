@@ -3,9 +3,7 @@
 namespace ApiAi\Model;
 
 /**
- * Class Base
- *
- * @package ApiAi\Model
+ * Class Base.
  */
 class Base implements \JsonSerializable
 {
@@ -44,7 +42,7 @@ class Base implements \JsonSerializable
 
     /**
      * @param string $name
-     * @param mixed $default
+     * @param mixed  $default
      *
      * @return mixed
      */
@@ -55,7 +53,7 @@ class Base implements \JsonSerializable
 
     /**
      * @param string $name
-     * @param mixed $value
+     * @param mixed  $value
      */
     public function add($name, $value)
     {
@@ -72,7 +70,7 @@ class Base implements \JsonSerializable
 
     /**
      * @param string $name
-     * @param mixed $default
+     * @param mixed  $default
      *
      * @return mixed
      */
@@ -80,5 +78,4 @@ class Base implements \JsonSerializable
     {
         return $this->has($name) ? $this->data[$name] : $default;
     }
-
 }

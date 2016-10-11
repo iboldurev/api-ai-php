@@ -3,14 +3,12 @@
 namespace ApiAi\Model;
 
 /**
- * Class Status
- *
- * @package ApiAi\Model
+ * Class Status.
  */
 class Status extends Base
 {
     /**
-     * @return integer
+     * @return int
      */
     public function getCode()
     {
@@ -40,5 +38,4 @@ class Status extends Base
     {
         return parent::get('errorDetails');
     }
-
 }
