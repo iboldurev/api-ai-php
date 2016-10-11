@@ -12,13 +12,12 @@ class ClientTest extends PHPUnit_Framework_TestCase
             'query' => 'Hello',
         ]);
 
-        $this->assertTrue($query->getReasonPhrase() === "OK");
+        $this->assertTrue($query->getReasonPhrase() === 'OK');
         $this->assertTrue($query->getStatusCode() === 200);
 
         $response = json_decode((string) $query->getBody(), true);
 
         $this->assertEquals($response['result']['action'], 'greeting');
         $this->assertEquals($response['result']['fulfillment']['speech'], 'Hi! How are you?');
-
     }
 }
