@@ -3,9 +3,7 @@
 namespace ApiAi\Model;
 
 /**
- * Class Fulfillment
- *
- * @package ApiAi\Model
+ * Class Fulfillment.
  */
 class Fulfillment extends Base
 {
@@ -48,5 +46,4 @@ class Fulfillment extends Base
     {
         return parent::get('contextOut');
     }
-
 }

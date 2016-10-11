@@ -6,9 +6,7 @@ use ApiAi\Model\Context;
 use ApiAi\Model\Step;
 
 /**
- * Class Speech
- *
- * @package ApiAi\Model\Step
+ * Class Speech.
  */
 class Speech implements Step
 {
@@ -25,7 +23,7 @@ class Speech implements Step
     /**
      * Speech constructor.
      *
-     * @param string $speech
+     * @param string    $speech
      * @param Context[] $contexts
      */
     public function __construct($speech, array $contexts)
@@ -57,5 +55,4 @@ class Speech implements Step
     {
         return Step::TYPE_SPEECH;
     }
-
 }

@@ -3,9 +3,7 @@
 namespace ApiAi\Model;
 
 /**
- * Class Metadata
- *
- * @package ApiAi\Model
+ * Class Metadata.
  */
 class Metadata extends Base
 {
@@ -32,5 +30,4 @@ class Metadata extends Base
     {
         return parent::get('webhookUsed');
     }
-
 }

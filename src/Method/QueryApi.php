@@ -6,9 +6,7 @@ use ApiAi\Client;
 use ApiAi\ResponseHandler;
 
 /**
- * Class QueryApi
- *
- * @package ApiAi\Method
+ * Class QueryApi.
  */
 class QueryApi
 {
@@ -31,14 +29,14 @@ class QueryApi
 
     /**
      * @param string $query
-     * @param array $extraParams
+     * @param array  $extraParams
      *
      * @return mixed
      */
     public function extractMeaning($query, $extraParams = [])
     {
         $query = array_merge($extraParams, [
-            'lang' => $this->client->getApiLanguage(),
+            'lang'  => $this->client->getApiLanguage(),
             'query' => $query,
         ]);
 
@@ -46,5 +44,4 @@ class QueryApi
 
         return $this->decodeResponse($response);
     }
-
 }

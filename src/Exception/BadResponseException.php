@@ -5,9 +5,7 @@ namespace ApiAi\Exception;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * Class BadResponseException
- *
- * @package ApiAi\Exception
+ * Class BadResponseException.
  */
 class BadResponseException extends \RuntimeException
 {
@@ -19,7 +17,7 @@ class BadResponseException extends \RuntimeException
     /**
      * BadResponseException constructor.
      *
-     * @param string $message
+     * @param string            $message
      * @param ResponseInterface $response
      */
     public function __construct($message, ResponseInterface $response)

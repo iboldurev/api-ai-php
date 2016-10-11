@@ -2,15 +2,13 @@
 
 namespace ApiAi\HttpClient;
 
+use ApiAi\Client;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\RequestOptions;
-use ApiAi\Client;
 
 /**
- * Class GuzzleHttpClient
- *
- * @package ApiAi\HttpClient
+ * Class GuzzleHttpClient.
  */
 class GuzzleHttpClient implements HttpClient
 {
@@ -27,19 +25,19 @@ class GuzzleHttpClient implements HttpClient
     public function __construct(ClientInterface $guzzleClient = null)
     {
         $this->guzzleClient = $guzzleClient ?: new GuzzleClient([
-            'base_uri' => Client::API_BASE_URI . Client::DEFAULT_API_ENDPOINT,
-            'timeout' => Client::DEFAULT_TIMEOUT,
+            'base_uri'        => Client::API_BASE_URI.Client::DEFAULT_API_ENDPOINT,
+            'timeout'         => Client::DEFAULT_TIMEOUT,
             'connect_timeout' => Client::DEFAULT_TIMEOUT,
         ]);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function send($method, $uri, $body = null, array $query = [], array $headers = [], array $options = [])
     {
         $options = array_merge($options, [
-            RequestOptions::QUERY => $query,
+            RequestOptions::QUERY   => $query,
             RequestOptions::HEADERS => $headers,
         ]);
 
@@ -51,5 +49,4 @@ class GuzzleHttpClient implements HttpClient
 
         return $this->guzzleClient->request($method, $uri, $options);
     }
-
 }

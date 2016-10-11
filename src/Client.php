@@ -2,45 +2,43 @@
 
 namespace ApiAi;
 
-use ApiAi\HttpClient\HttpClient;
-use ApiAi\HttpClient\GuzzleHttpClient;
 use ApiAi\Exception\BadResponseException;
+use ApiAi\HttpClient\GuzzleHttpClient;
+use ApiAi\HttpClient\HttpClient;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * Class Client
- *
- * @package ApiAi
+ * Class Client.
  */
 class Client
 {
     /**
-     * API Base url
+     * API Base url.
      */
     const API_BASE_URI = 'https://api.api.ai/';
 
     /**
-     * API Version
+     * API Version.
      */
     const DEFAULT_API_VERSION = '20150910';
 
     /**
-     * API Endpoint
+     * API Endpoint.
      */
     const DEFAULT_API_ENDPOINT = 'v1/';
 
     /**
-     * API Default Language
+     * API Default Language.
      */
     const DEFAULT_API_LANGUAGE = 'en';
 
     /**
-     * API Default Source
+     * API Default Source.
      */
     const DEFAULT_API_SOURCE = 'php';
 
     /**
-     * Request default timeout
+     * Request default timeout.
      */
     const DEFAULT_TIMEOUT = 5;
 
@@ -77,10 +75,10 @@ class Client
     /**
      * Client constructor.
      *
-     * @param string $accessToken
+     * @param string          $accessToken
      * @param HttpClient|null $httpClient
-     * @param string $apiLanguage
-     * @param string $apiVersion
+     * @param string          $apiLanguage
+     * @param string          $apiVersion
      */
     public function __construct($accessToken, HttpClient $httpClient = null, $apiLanguage = self::DEFAULT_API_LANGUAGE, $apiVersion = self::DEFAULT_API_VERSION)
     {
@@ -136,7 +134,7 @@ class Client
 
     /**
      * @param string $uri
-     * @param array $params
+     * @param array  $params
      *
      * @return ResponseInterface
      */
@@ -147,7 +145,7 @@ class Client
 
     /**
      * @param string $uri
-     * @param array $params
+     * @param array  $params
      *
      * @return ResponseInterface
      */
@@ -159,10 +157,10 @@ class Client
     /**
      * @param string $method
      * @param string $uri
-     * @param mixed $body
-     * @param array $query
-     * @param array $headers
-     * @param array $options
+     * @param mixed  $body
+     * @param array  $query
+     * @param array  $headers
+     * @param array  $options
      *
      * @return ResponseInterface
      */
@@ -193,6 +191,7 @@ class Client
 
     /**
      * @param ResponseInterface $response
+     *
      * @throws BadResponseException
      */
     private function validateResponse(ResponseInterface $response)
@@ -204,30 +203,29 @@ class Client
     }
 
     /**
-     * Get the defaults query
+     * Get the defaults query.
      *
      * @return array
      */
     private function getDefaultQuery()
     {
         return [
-            'v' => $this->apiVersion,
+            'v'    => $this->apiVersion,
             'lang' => $this->apiLanguage,
         ];
     }
 
     /**
-     * Get the defaults headers
+     * Get the defaults headers.
      *
      * @return array
      */
     private function getDefaultHeaders()
     {
         return [
-            'Content-Type' => 'application/json; charset=utf-8',
-            'Authorization' => 'Bearer ' . $this->accessToken,
+            'Content-Type'       => 'application/json; charset=utf-8',
+            'Authorization'      => 'Bearer '.$this->accessToken,
             'api-request-source' => self::DEFAULT_API_SOURCE,
         ];
     }
-
 }
