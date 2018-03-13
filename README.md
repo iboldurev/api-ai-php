@@ -36,6 +36,7 @@ try {
 
     $query = $client->get('query', [
         'query' => 'Hello',
+        'sessionId' => time()
     ]);
 
     $response = json_decode((string) $query->getBody(), true);
