@@ -8,3 +8,5 @@ composer.lock
 *.sublime-workspace
 *.phar
 *.log
+
+.env

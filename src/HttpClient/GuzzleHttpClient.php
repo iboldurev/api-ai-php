@@ -24,12 +24,13 @@ class GuzzleHttpClient implements HttpClient
      *
      * @param ClientInterface|null $guzzleClient
      */
-    public function __construct(ClientInterface $guzzleClient = null)
+    public function __construct(ClientInterface $guzzleClient = null, $headers)
     {
         $this->guzzleClient = $guzzleClient ?: new GuzzleClient([
             'base_uri' => Client::API_BASE_URI . Client::DEFAULT_API_ENDPOINT,
             'timeout' => Client::DEFAULT_TIMEOUT,
             'connect_timeout' => Client::DEFAULT_TIMEOUT,
+            'headers' => $headers,
         ]);
     }
 
