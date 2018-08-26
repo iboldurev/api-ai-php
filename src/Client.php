@@ -101,7 +101,11 @@ class Client
      */
     private function defaultHttpClient()
     {
-        return new GuzzleHttpClient();
+        return new GuzzleHttpClient([
+            'headers' => [
+                'Authorization' => sprintf('Bearer %s', $this->accessToken),
+            ],
+        ]);
     }
 
     /**
