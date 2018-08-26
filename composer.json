@@ -25,5 +25,9 @@
   "require": {
     "php": ">=5.5.0",
     "guzzlehttp/guzzle": "^6.2"
+  },
+  "require-dev": {
+    "codeception/codeception": "^2.4",
+    "vlucas/phpdotenv": "^2.5"
   }
 }

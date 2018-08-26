@@ -3,7 +3,7 @@
 namespace DialogFlow;
 
 use DialogFlow\HttpClient\HttpClient;
-use DialogFlow\HttpClient\GuzzleHttpClient;
+use GuzzleHttp\Client as GuzzleClient;
 use DialogFlow\Exception\BadResponseException;
 use GuzzleHttp\Promise\PromiseInterface;
 use function GuzzleHttp\Promise\rejection_for;
@@ -101,8 +101,13 @@ class Client
      */
     private function defaultHttpClient()
     {
-        return new GuzzleHttpClient(null, [
-            'Authorization' => sprintf('Bearer %s', $this->accessToken),
+        return new GuzzleClient([
+            'base_uri' => Client::API_BASE_URI . Client::DEFAULT_API_ENDPOINT,
+            'timeout' => Client::DEFAULT_TIMEOUT,
+            'connect_timeout' => Client::DEFAULT_TIMEOUT,
+            'headers' => [
+                'Authorization' => sprintf('Bearer %s', $this->accessToken),
+            ],
         ]);
     }
 
@@ -146,7 +151,7 @@ class Client
      */
     public function get($uri, array $params = [])
     {
-        return $this->send('GET', $uri, null, $params);
+        return $this->send('GET', $uri, $params);
     }
 
     /**
@@ -192,14 +197,15 @@ class Client
      *
      * @return ResponseInterface
      */
-    public function send($method, $uri, $body = null, array $query = [], array $headers = [], array $options = [])
+    public function send($method, $uri, array $query = [])
     {
         $this->validateMethod($method);
 
         $query = array_merge($this->getDefaultQuery(), $query);
-        $headers = array_merge($this->getDefaultHeaders(), $headers);
 
-        $this->lastResponse = $this->client->send($method, $uri, $body, $query, $headers, $options);
+        $this->lastResponse = $this->client->request($method, $uri, [
+            'query' => $query,
+        ]);
 
         $this->validateResponse($this->lastResponse);
 
